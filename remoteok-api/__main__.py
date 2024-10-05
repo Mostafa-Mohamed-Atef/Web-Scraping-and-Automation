@@ -31,7 +31,6 @@ def to_xls(data):
             sheet.write(i+1, j, values[j])
     wb.save("remote_jobs.xls")
 
- 
 if __name__== "__main__":
     data=req_get_job_postings()[1:]
     to_xls(data)
