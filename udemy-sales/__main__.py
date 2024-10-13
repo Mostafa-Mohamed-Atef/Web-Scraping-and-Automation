@@ -16,14 +16,16 @@ def get_html(link):
 def get_current_price(row):
     html = get_html(row)
     # scraping
-    soup = bs4.BeautifulSoup(html, 'lxml')
-    main_div = soup.find('span', attrs={'class': 'ud-sr-only'})
+    soup = bs4.BeautifulSoup(html, 'html.parser')
+    for i in soup.find_all('span'):
+        print(i)
+    # main_div = soup.find('span', attrs={'class': 'ud-sr-only'})
     
-    if main_div is not None:
-        titel = main_div.text.strip()
-        print(titel)
-    else:
-        print("main_div not found for row: ", row)
+    # if main_div is not None:
+    #     titel = main_div.text.strip()
+    #     print(titel)
+    # else:
+    #     print("main_div not found for row: ", row)
 
 if __name__ == "__main__":
     with open("udemy-sales/courses.json") as f:
