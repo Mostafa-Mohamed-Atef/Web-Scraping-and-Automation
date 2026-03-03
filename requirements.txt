@@ -1,0 +1,15 @@
+selenium
+webdriver-manager
+bs4
+requests
+xlwt
+email
+os
+datetime
+csv
+bs4
+requests
+xlwt
+email
+os
+datetime
