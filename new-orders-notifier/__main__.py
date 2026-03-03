@@ -6,7 +6,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 import time
 import winsound
 import json
-
+# from playsound import playsound
 
 # ---- SETTINGS ----
 URL = json.load(open("urls.json"))["new-orders-notifier"]
@@ -36,7 +36,10 @@ while True:
         # 🚨 Only alert if it increased
         if current_value > last_value:
             print("🚨 NEW ORDER DETECTED!")
-            winsound.Beep(1500, 700)
+            winsound.PlaySound(
+                "new-orders-notifier/notification.wav",
+                winsound.SND_FILENAME | winsound.SND_ASYNC
+            )
 
         # If it reset to 0, just update silently
         last_value = current_value
